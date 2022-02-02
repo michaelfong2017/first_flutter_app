@@ -1,4 +1,5 @@
 import 'package:first_flutter_app/initial_binding.dart';
+import 'package:first_flutter_app/my_translations.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,6 +14,10 @@ Future<void> main() async {
   await initServices();
 
   runApp(GetMaterialApp(
+    locale: Get.find<MyTranslations>()
+        .locale, // translations will be displayed in that locale
+    fallbackLocale: Get.find<MyTranslations>().fallbackLocale,
+    translations: Get.find<MyTranslations>(),
     initialBinding: InitialBinding(),
     initialRoute: Routes.HOME,
     getPages: [
